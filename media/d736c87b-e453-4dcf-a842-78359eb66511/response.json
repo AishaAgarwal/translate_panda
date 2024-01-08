@@ -1,0 +1,10 @@
+{
+    "metadata": {
+        "request_id": "d736c87b-e453-4dcf-a842-78359eb66511",
+        "status_code": 200,
+        "message": "Processing Done."
+    },
+    "data": {
+        "processed_file_path": "media/d736c87b-e453-4dcf-a842-78359eb66511/processed_file_path.mp4"
+    }
+}

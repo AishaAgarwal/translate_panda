@@ -1,0 +1,345 @@
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #1d262d;
+  font-family: "Montserrat" !important;
+  margin-left: 80px;
+  }
+
+
+
+a  {
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #ff165d;
+  border: none;
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* Switcher */
+.wrapper {
+    margin-top: 50px;
+    margin-left: 450px;
+}
+
+.toggle span {
+    color: white;
+    font-size: 20px;
+}
+
+.no-italics {
+    font-style: normal;   
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #2a3742;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #ff165d;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+
+
+/* Pricing plan */
+* {
+  box-sizing: border-box;
+  /* padding-left: 10px; */
+  background-color: #1d262d;
+  /* margin-left: 20px; */
+}
+
+/* Create three columns of equal width */
+.columns {
+  float: left;
+  width: 25%;
+  border-radius:20px;
+  margin-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* Style the list */
+.price {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius:15px;
+}
+
+
+/* Pricing header */
+.price .header {
+  background-color: #1d262d;
+  color: white;
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+/* List items */
+.price li {
+  padding: 3px;
+  text-align: left;
+  background-color: #1d262d;
+  color: white;
+  padding-left: 15px;
+}
+
+/* Grey list item */
+.price .subscribe {
+  background-color: #1d262d;
+  color: white;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.price p {
+    background-color: #1d262d;
+    color:white;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.price form {
+  margin-bottom: 5px;
+}
+
+
+#checkout-button {
+  background-color: #ff165d;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 205px;
+  margin-top: 15px;
+  cursor: pointer;
+  height: 47px;
+}
+
+#checkout-button1 {
+  background-color: #ff165d;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 208px;
+  margin-top: 0px;
+  cursor: pointer;
+  height: 47px;
+}
+
+/* The "Sign Up" button */
+.price-btn {
+  background-color: #ff165d;
+  border: none;
+  color: white;
+  padding: 10px 60px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  margin-top: 13px;
+  cursor: pointer;
+  
+}
+
+/* Dropdown box */
+.dropbtn {
+  border-radius: 5px;
+  background-color: #262626;
+  color: #878e96;
+  font-size: 16px;
+  cursor: pointer;
+  width: 210px;
+  text-align: left;
+  border: 3px solid white;
+  margin-top: 5px;
+  margin-left: 15px;
+  
+}
+
+.dropbtn button:hover {
+  background-color: #2a3742;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border-radius:10px;
+  width: 200px; 
+}
+
+.dropdown i {
+  background-color: #262626;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #d5d7e3;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(42,55,66,0.2);
+  z-index: 1;
+  border-radius:10px;
+  margin-left: 15px;
+}
+
+.dropdown-content a {
+  color: black;
+  background-color: #d5d7e3;
+  text-decoration: none;
+  display: block;
+  border-radius:10px;
+  width: 210px;
+  padding-left: 10px;
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+.dropdown a:hover {
+    background-color: #384857;
+    color: #d5d7e3;
+}
+
+.show {display: block;}
+
+.columns_1 {
+  float: left;
+  width: 243px;
+  border: #4e4e4e 3px solid;
+  padding-bottom: 50px;
+  border-radius: 20px;
+  margin-right: 85px;
+  margin-top: 68px;
+  padding-right: 30px;
+  background-color: #3c3c3c;
+}
+
+#popular {
+  font-size: 10px;
+  margin-top: 15px;
+  margin-left: 5px;
+  background-color: #1d262d;
+  border-radius: 15px;
+  margin-right: 25px;
+  width:100px;
+  
+}
+
+#special {
+  background-color: #3c3c3c;
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin-left: 30px;
+    width: 73%;
+  }
+
+  /* Switcher */
+  .wrapper {
+    margin-top: 30px;
+    margin-left: 25px;
+    width:120%;
+  }
+
+  .price {
+    margin-top: 30px;
+  }
+ 
+  .columns {
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+
+  .button {
+    width: 400px;
+  }
+
+  .columns_1 {
+    width: 250px;
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 120px;
+    padding-top: 0px;
+  }
+ 
+  .dropdown {
+    width: 200px;
+  }
+}

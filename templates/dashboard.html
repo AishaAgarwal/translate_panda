@@ -1,0 +1,191 @@
+<html>
+<head>
+
+    <!--Video upload & dropdown box-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <!--link to css / js -->
+    <link rel='stylesheet' type="text/css" href="{% static 'css/main.css' %}">
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+
+    <!-- Bootstrap Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!--Modal-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!--Facebook share link-->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0" nonce="vuEZ79Lr"></script>
+
+</head>
+<body>
+    {% if select %}
+        <p style="color:white;text-align: center;">
+            <strong> {{ select }}</strong></p>
+    {% endif %}
+
+    {% if msg %}
+        <a href="/protected_area" id="msg">
+            <strong> {{ msg }}  </strong></a>
+    {% endif %}
+
+    <!--Header dropdown-->
+    <ul>
+        <li><h1 href="", id="logo">LOGO</h1></li>
+        <li style="float:right; margin-top: 15px;">
+        <a href='/plans' class="button", id="upgrade">Upgrade</a>
+        <progress id="progress" value="32" max="100"> 32% </progress>
+        <i id="profile" class="bi bi-person-circle" class="dropdown_1" onclick="myFunction()" class="dropbtn1"></i>
+        
+            <div id="myDropdown2" class="dropdown-content_1">
+                <a href="#"><i class="bi bi-gear-fill"><i class='no-italics'>  Billing</i></i></a>
+                <a href="/plans"><i class="bi bi-card-checklist"><i class='no-italics'>  Plans 
+                </i></i></a>
+                <a href="#"><i class="bi bi-question-lg"><i class='no-italics'>  Help center</i></i></a>
+                <a href="/logout"><i class="bi bi-box-arrow-right"><i class='no-italics'>  Log out</i></i></a>
+            </div>
+            </div>
+        </li>
+    </ul> 
+
+    <!--Video upload --->
+    <div class="file-upload"> 
+        <form action="{% url 'job:upload' %}" enctype="multipart/form-data" method="POST"> 
+                
+            <label class="custom-file-upload">
+                <input type="file" name="video" accept=".mp4" class="fileuploader" >
+            </label>  
+            <ul>
+            <li><button class="Upload"></button></li>
+            </ul>
+        </form>
+            <i class="bi bi-upload"></i>
+            <h1 >Drop to upload</h1>
+            <p >(up to 500MB)</p>
+            <p id=text1>mp4, quicktime, webm are supported</p>
+        <div class="video-list">
+            <ul style=list-style:none;></ul>
+        </div>     
+    </div>          
+   
+    <div class="file-requirements">
+        <p class="thick"><i class="bi bi-info-circle"><i class='no-italics'> Requirements</i></i></p>
+    </div>
+
+    <!---language dropdown --->
+    <div class="dropdown-wrapper">
+        <form method="POST" action="{% url 'dashboard_1' %}"> 
+            <select name="select1" class="dropbtn">
+             <i class="bi bi-chevron-down"></i>
+                <option value="None">Choose a target language</option>
+                <option value="English">English</option>
+                <option value="Germany">Germany</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Polish">Polish</option>
+                <option value="Swedish">Mandarin</option>
+            </select>
+        
+        </form>   
+      
+          <p id=text2><i class="bi bi-exclamation-triangle" id=triangle><i class='no-italics'>  Please select an option</i></i></p>
+       
+      <!---submission button --->
+     
+            <!-- <button  class="submit",
+            onclick="document.getElementById('id03').style.display='block'"
+            >Translate this video</button> -->
+            <button class="submit", onclick="document.getElementById('id03').style.display='block'">Translate this video</button>
+      </div> 
+       <!---video card --->
+       <div class="w3-container">
+            <h1>Translated</h1>
+            
+                <div class="w3-card-2">
+                    <video width="405" height="210" control autoplay>
+                        <source src="Wav2lip/result/result_voice" type="video/mp4">
+                    </video>
+                 
+                    
+                    <div class="dropdown6"><p  style="float:left;">Video title here</p>
+                        <button style="float:right" onclick="myFunction6()" class="dropbtn6">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    
+                    </div>
+                </div>
+        </div>
+  
+        <!---video card dropdown --->
+        <div id="myDropdown" class="dropdown-content6">
+            <a href="#" id="a2" onclick="document.getElementById('id04').style.display='block'">
+                <i class="bi bi-share"><i class='no-italics'>  Share your video</i></i></a>
+            <a href="#" id="a1" onclick="document.getElementById('id02').style.display='block'">
+                <i class="bi bi-trash"><i class='no-italics'> Delete</i></i></a>
+          </div> 
+  
+  
+        <!---video card/delete modal--->
+        <div id="id02" class="modal">
+            <div class="modal-container">
+                 <h1 style="margin-left:25px; margin-top: 40px;" id="modal">Delete video?</h1>
+                 <p id="modal" style="color:white;padding-left: 10px;">This action cannot be revoked.</p>
+                 <ul>  
+                    <li style="float: left;">
+                        <form action="/delete_video" method="POST">
+                            <button id="modal-btn" style="background-color: #384857;" 
+                                onclick="document.getElementById('id02').style.display='none'">  
+                                Cancel
+                            </button>
+                            <button id="modal-btn" style="background-color: #ff165d;
+                                margin-left: 5px;" value="Delete Video">  Delete
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+              <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+        </div>
+
+    <!--upgrade-modal-->
+    <div id="id03" class="modal">
+        <div class="modal-container">
+             <h1 style="margin-left:25px; margin-top: 30px;" id="modal">Upgrade your plan</h1>
+             <p id="modal" style="padding-bottom: 60px; color:white; padding-left: 10px;">
+                You have reached your plans limit.
+             </p>
+             
+             <a href="/plans" class="button" id="upgrade-btn">Upgrade Now</a>
+                <span onclick="document.getElementById('id03').style.display='none'" 
+                    class="close" title="Close Modal">&times;
+                </span>
+        </div>
+    </div>
+
+     <!--share-modal-->
+     <div id="id04" class="modal">
+        <div class="modal-container">
+             <h1 style="margin-left:25px; margin-top: 30px;" id="modal">Share your video</h1>
+             <p id="modal" style="padding-bottom: 60px; color:white;padding-left: 10px;">
+                Let's share video!
+             </p>
+             <a onclick="myFunction1()" 
+                id="share-btn"><i class="bi bi-linkedin"></i></a>
+             <a onclick="myFunction2()"
+                id="share-btn"><i class="bi bi-facebook"></i></a>
+             <a onclick="myFunction3()"
+                id="share-btn"><i class="bi bi-whatsapp"></i></a>
+             <a onclick="myFunction4()"
+                id="share-btn"><i class="bi bi-instagram"></i></a>
+             <a onclick="myFunction5()"
+                id="share-btn"><i class="bi bi-youtube"></i></a>
+                <span onclick="document.getElementById('id04').style.display='none'" 
+                    class="close" title="Close Modal">&times;
+                </span>
+        </div>
+    </div>
+</body>
+</html>

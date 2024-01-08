@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World!</title> 
+  <link rel='stylesheet' href="{% static 'css/plan.css' %}">
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- Bootstrap Icon CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+   <!--link js -->
+   <script type="text/javascript" src="{% static 'js/plan.js' %}"></script>
+
+   <!-- <link rel="stylesheet" href="style.css"> -->
+ 
+</head>
+<body>
+  
+
+  <a href='/protected_area'><i class="bi bi-chevron-left"><i class='no-italics'> Back</i></i></a>  
+
+
+    <div class="wrapper">
+        <label class="toggle">
+            <span class="toggle-label">Billed monthly </span>
+            <input class="toggle-checkbox" type="checkbox">
+            <div class="toggle-switch"></div>
+            <span class="toggle-label"> Billed annualy</span>
+          </label>
+    </div>
+
+<!--Free-->
+<div class="columns">
+  <ul class="price">
+    <li class="header">Free</li>
+    <li class="subscribe">$0</li>
+    <li class="subscribe">
+      <!-- <a href='/protected_area' class="button">Subscribe</a></li>  -->
+      <form method="POST" action="{% url 'dashboard_1' %}"> 
+          <button class="price-btn" id="button1">Subscribe</button>
+        </form>
+    </li>
+    <p>1 minute for free</p>
+    <p>This includes</p>
+    <li><i class="bi bi-check-circle-fill"></i>  More waiting time</li>
+    <li><i class="bi bi-check-circle-fill"></i>  5 days video storage</li>
+    <li><i class="bi bi-check-circle-fill"></i>  Up to 500MB per upload</li>
+  </ul>
+</div>
+
+<!--Plus-->
+<div class="columns">
+  <ul class="price" >
+    <li class="header">Plus</li>
+    <li class="subscribe">$16.99</li>
+    
+    <li class="subscribe">
+      <form action="{% url 'plan:create-checkout-session' price_id=1 %}" method="POST">
+        <button type="submit" id="checkout-button">Subscribe</button>
+      </form>
+    </li>   
+
+      <p>$1.20/minute</p>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">40 video minutes/month
+        <i style="float:right", class="bi bi-chevron-down"></i></button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">15 video minutes/month</a>
+            <a href="#">30 video minutes/month</a>
+            <a href="#">40 video minutes/month</a>
+          </div>
+      </div>
+      <p>This includes</p>
+        <li><i class="bi bi-check-circle-fill"></i>  Preferential queue</li>
+        <li><i class="bi bi-check-circle-fill"></i>  30 days clip storage</li>
+        <li><i class="bi bi-check-circle-fill"></i>  Up to 1GB per upload</li>
+    </ul>
+</div>  
+
+<!--Premium-->
+<div class="columns_1"  id="special">
+  <ul class="price"  id="special" >
+    <li id="special"><p id="popular">Most Popular</p></li>
+    <li class="header" id="special">Premium</li>
+    <li class="subscribe" id="special">$19.99</li>
+    <li class="subscribe" id="special">
+      <form action="{% url 'plan:create-checkout-session' price_id=2 %}" method="POST">
+        <button type="submit" id="checkout-button1">Subscribe</button>
+      </form>
+    
+    </li>
+    <p id="special">$0.90/minute</p>
+    <div class="dropdown" id="special">
+      <button onclick="myFunction2()" class="dropbtn">50 video minutes/month
+      <i style="float:right", id="special", class="bi bi-chevron-down"></i></button>
+        <div id="myDropdown2" class="dropdown-content" id="special">
+          <a href="#">15 video minutes/month</a>
+          <a href="#">30 video minutes/month</a>
+          <a href="#">40 video minutes/month</a>
+          <a href="#">50 video minutes/month</a>
+        </div>
+    </div>
+    <p id="special">This includes</p>
+      <li id="special"><i class="bi bi-check-circle-fill" id="special"></i>  Preferential queue</li>
+      <li id="special"><i class="bi bi-check-circle-fill" id="special"></i>  720 days clip storage</li>
+      <li id="special"><i class="bi bi-check-circle-fill" id="special"></i>  Up to 1GB per upload</li>
+  </ul>
+</div>  
+
+<!--Enterprise-->
+<div class="columns" style="margin-top: 110px;">
+  <ul class="price" >
+    <li class="header">Enterprise</li>
+    <li class="subscribe">$249.99</li>
+    <li class="subscribe">
+      <!-- <a href="#" class="button">Subscribe</a> -->
+      <form action="{% url 'plan:create-checkout-session' price_id=3 %}" method="POST">
+        <button type="submit" id="checkout-button1">Subscribe</button>
+      </form>
+    </li>
+    
+    <p>$1.29/minute</p>
+    <div class="dropdown">
+      <button onclick="myFunction3()" class="dropbtn">90 video minutes/month
+      <i style="float:right", class="bi bi-chevron-down"></i></button>
+        <div id="myDropdown3" class="dropdown-content">
+          <a href="#">15 video minutes/month</a>
+          <a href="#">30 video minutes/month</a>
+          <a href="#">40 video minutes/month</a>
+          <a href="#">50 video minutes/month</a>
+          <a href="#">90 video minutes/month</a>
+        </div>
+    </div>
+    <p>This includes</p>
+      <li><i class="bi bi-check-circle-fill"></i>  Preferential queue</li>
+      <li><i class="bi bi-check-circle-fill"></i>  1450 days clip storage</li>
+      <li><i class="bi bi-check-circle-fill"></i>  Up to 1GB per upload</li>
+  </ul>
+</div>  
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Thanks for your order!</title>
+
+ <!-- Bootstrap Icon CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+ <link rel='stylesheet' type="text/css" href="{% static 'css/main.css' %}">
+
+<style>
+body {
+  background-color: #1d262d;
+  margin-left: 80px
+}
+
+  /* button {
+  margin-top: 70px;
+
+  background-color: #1d262d;
+  border: none;
+} */
+
+a {
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.no-italics {
+    font-style: normal;   
+}
+
+.wrapper {
+  margin-top: 50px;
+  margin-left: 400px;
+  color: #ff165d;
+  }
+
+  @media only screen and (max-width: 600px) {
+  body {
+    margin-left: 20px
+  }
+  
+  .wrapper {
+    margin-top: 50px;
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
+</style>
+</head>
+<body>
+
+
+  <a href="{% url 'plan:lu_plan' %}"><i class="bi bi-chevron-left"><i class='no-italics'> Back</i></i></a>  
+
+  
+<div class="wrapper">
+  <section>
+      <h1>Sorry, Payment Failed</h1>
+  
+  </section>
+</div>
+</body>
+</html>
