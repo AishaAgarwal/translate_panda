@@ -142,7 +142,7 @@ function myFunction5() {
 
 
 function updateProgressBar() {
-  // Make an AJAX request to get the progress
+//   // Make an AJAX request to get the progress
   $.ajax({
       url: '/get_progress',
       type: 'GET',
@@ -154,7 +154,8 @@ function updateProgressBar() {
           console.error('Error fetching progress:', error);
       }
   });
-}
+ }
 
 // Call updateProgressBar function every few seconds
-setInterval(updateProgressBar, 3000); // Adjust the interval as needed
+setInterval(updateProgressBar, 3000);
+ // Adjust the interval as needed

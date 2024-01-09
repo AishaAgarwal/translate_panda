@@ -23,7 +23,6 @@ class HomeView(APIView):
             return Response(json.dumps({'Message': 'Internal Server Error'}), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-
 class ProtectedAreaView(APIView):
     authentication_classes = [FirebaseAuthentication]
     permission_classes = [IsAuthenticated]
@@ -36,7 +35,6 @@ class ProtectedAreaView(APIView):
             return Response({'serializer': 'sample data'}, status=status.HTTP_200_OK)
         except Exception as error:
             return Response(json.dumps({'Message': 'Internal Server Error'}), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 
 class DashboardOneView(APIView):
