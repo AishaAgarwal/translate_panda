@@ -25,6 +25,7 @@ urlpatterns = [
     path('dashboard_1/', DashboardOneView.as_view(), name='dashboard_1'),
     path('dashboard_2/', DashboardTwoView.as_view(), name='dashboard_2'),
     path('account/', include('account.urls')),
+   
     path('job/', include('job.urls')),
     path('plan/', include('plan.urls')),
 ]
