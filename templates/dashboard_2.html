@@ -28,25 +28,25 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
 
-      import {
-        
-        signInWithPopup,
-        GoogleAuthProvider,
-        signInWithRedirect,
-      } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+        import {
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyB_tOjzX6Em41dcetUBf1pqaOY4pU-E-kM",
-        authDomain: "translate-fe564.firebaseapp.com",
-        databaseURL: "https://translate-fe564-default-rtdb.firebaseio.com",
-        projectId: "translate-fe564",
-        storageBucket: "translate-fe564.appspot.com",
-        messagingSenderId: "186396337537",
-        appId: "1:186396337537:web:70525a799bc854c3933480",
-        measurementId: "G-17XNH66CVV",
-      };
+            signInWithPopup,
+            GoogleAuthProvider,
+            signInWithRedirect,
+        } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
 
-      const app = initializeApp(firebaseConfig);
+        const firebaseConfig = {
+            apiKey: "AIzaSyB_tOjzX6Em41dcetUBf1pqaOY4pU-E-kM",
+            authDomain: "translate-fe564.firebaseapp.com",
+            databaseURL: "https://translate-fe564-default-rtdb.firebaseio.com",
+            projectId: "translate-fe564",
+            storageBucket: "translate-fe564.appspot.com",
+            messagingSenderId: "186396337537",
+            appId: "1:186396337537:web:70525a799bc854c3933480",
+            measurementId: "G-17XNH66CVV",
+        };
+
+        const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
         function logoutUser() {
@@ -91,8 +91,8 @@
                         </i></i></a>
                 <a href="#"><i class="bi bi-question-lg"><i class='no-italics'> Help center</i></i></a>
                 <button id="logout">
-                     Log Out
-                  </button>
+                    Log Out
+                </button>
             </div>
             </div>
         </li>
@@ -118,9 +118,89 @@
         </div>
     </div>
 
-    <div class="file-requirements">
+    <div id="requirementsModal" class="modal">
+        <div class="modal-container" style="width: 500px; height: 650px;">
+            <h1 style="margin-left: 25px; margin-top: 30px;">Requirements</h1>
+            <div style="padding: 10px;">
+                <button onclick="showDos()">Do's</button>
+                <button onclick="showDonts()">Don't Do</button>
+            </div>
+            <div id="dosContent" display: none;>
+                <ol type="checkbox">
+                <div 
+                    style="border-radius: 5px;text-align: left; color:white;margin-left: 20px; width:450px; height: 85px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;">Language input: Arabic, Danish, Dutch, English
+                        French, German, Hebrew, Hindi, Italian, Japanese,
+                        Korean, Romanian, Russian, Spanish, Turkish.
+                    </li>
+                </div>
+
+                <div
+                    style="border-radius: 5px; text-align: left; margin-top:20px; color: white;margin-top: 20px;margin-left:20px; width:450px; height: 155px; border: 1px solid black;background-color: #303a43;">
+                    <span type="checkbox" style="width: 20px; height: 20px; background: url('https://tse1.mm.bing.net/th?id=OIP.TzAqU0K1_Sw6u4ULkeC5uAHaHa&pid=Api&P=0&h=180')no-repeat; display: inline;"></span>
+                   
+                    <li style="padding: 10px;">Language output: English - American Accent,
+                        English - Your Accent, Arabic, Bulgarian,
+                        Mandarin, Croatian, Czech, Danish, Dutch,
+                        Filipino, Finnish, French, German, Greek, Hindi,
+                        Indonesian, Italian, Japanese, Korean, Malay, Polish,
+                        Portuguese, Romanian, Slovak, Spanish, Swedish,
+                        Tamil, Turkish, Ukrainian.
+                    </li>
+                </div>
+                <div
+                    style="border-radius: 5px;text-align: left;color:white; margin-top: 20px;margin-left:20px; width:450px; height: 65px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;">Video duration must be between 5 seconds and 30 minutes.</li>
+                </div>
+                <div
+                    style="border-radius: 5px; text-align: left;color:white;margin-top: 20px;margin-left:20px; width:450px; height: 40px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;">Resolution must be between 360x360 and 4096x4096</li>
+                </div>
+                <div
+                    style="border-radius: 5px;text-align: left; color:white;margin-top: 20px;margin-left:20px; width:450px; height: 40px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;"> Video must contain audio</li>
+                </div>
+            </ol>
+
+            </div>
+            <div id="dontsContent" class="requirement-box" style="display: none">
+                <div
+                    style="border-radius: 10px; text-align: left;color:white;margin-top: 20px;margin-left:20px; width:450px; height: 70px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;">Try to avaoid background music and noises, as they can degrade the quality of output audio.</li>
+                </div>
+                <div
+                    style="border-radius: 10px;text-align: left;color:white; margin-top: 20px;margin-left:20px; width:450px; height: 40px; border: 1px solid black;background-color: #303a43;">
+                    <li style="padding: 10px;">Try to avoid multiple prople</li>
+                </div>
+            </div>
+
+            <span onclick="closeRequirementsModal()" class="close" title="Close Modal">&times;</span>
+        </div>
+    </div>
+
+    <div class="file-requirements" onclick="showRequirementsModal()">
         <p class="thick"><i class="bi bi-info-circle"><i class='no-italics'> Requirements</i></i></p>
     </div>
+
+    <script>
+        function showRequirementsModal() {
+            document.getElementById('requirementsModal').style.display = 'block';
+        }
+
+        function closeRequirementsModal() {
+            document.getElementById('requirementsModal').style.display = 'none';
+        }
+
+        function showDos() {
+            document.getElementById('dosContent').style.display = 'block';
+            document.getElementById('dontsContent').style.display = 'none';
+        }
+
+        function showDonts() {
+            document.getElementById('dosContent').style.display = 'none';
+            document.getElementById('dontsContent').style.display = 'block';
+        }
+    </script>
 
     <!---language dropdown --->
     <div class="dropdown-wrapper">
